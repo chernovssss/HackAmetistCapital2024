@@ -37,3 +37,39 @@ XX.XX.XX-XXX-XXX - позиция классификатора строител�
 Первые 9 цифр позиции:  
 XX.XX.XX.XXX ОКПД 2 (КПЕС 2008)  
 X - символ, обозначающий раздел цифровой части кода 
+
+## Стуктура проекта
+
+|   .gitignore
+|   README.md
+|
++---data
+|   \---train_Ametist
+|           case_README.md
+|           classification.xlsx
+|           train.xlsx
+|
++---Docker
+|       compose.yaml
+|       Dockerfile
+|       requirements.txt
+|
++---eda
+|       exp1.ipynb
+|
+\---src
+    +---api
+    |       data_models.py
+    |       exceptions.py
+    |       main.py
+    |       requirements_api.txt
+    |
+    \---streamlit
+        |   requirements_streamlit.txt
+        |
+        +---.streamlit
+        |       config.toml
+        |
+        +---components
+        +---main.py
+        \---pages
