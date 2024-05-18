@@ -1,0 +1,21 @@
+services:
+  streamlit:
+    build: .
+    command: ["streamlit", "run", "main.py"]
+    container_name: streamlit
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/code/
+    environment:
+      - PYTHONUNBUFFERED=1
+  api:
+    build: .
+    command: ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080"]
+    container_name: api
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/code/
+    environment:
+      - PYTHONUNBUFFERED=1
