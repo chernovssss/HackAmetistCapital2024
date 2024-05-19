@@ -114,7 +114,7 @@ class ClassificationModel(SearchModel):
 
 class SearchService:
 
-    def __init__(self, model: ClassificationModel, norm_vectors: pd.DataFrame):
+    def __init__(self, model: ClassificationModel):
         self.model = model
 
     def __call__(self, inputs):
