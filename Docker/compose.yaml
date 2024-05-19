@@ -1,21 +1,25 @@
 services:
-  streamlit:
-    build: .
-    command: ["streamlit", "run", "main.py"]
-    container_name: streamlit
+  streamlit_app:
+    container_name: streamlit_app
+    build: 
+      context : .
+      dockerfile: ./streamlit_app/Dockerfile
+    command: streamlit run streamlit_app/main.py --server.port=8501 --server.address=0.0.0.0
     ports:
-      - "8081:8081"
+      - "8501:8501"
     volumes:
-      - .:/code/
+      - ../:/streamlit_app
     environment:
       - PYTHONUNBUFFERED=1
   api:
-    build: .
+    build: 
+      context : .
+      dockerfile: ./api/Dockerfile
     command: ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080"]
     container_name: api
     ports:
       - "8080:8080"
     volumes:
-      - .:/code/
+      - ../:/api/
     environment:
       - PYTHONUNBUFFERED=1
