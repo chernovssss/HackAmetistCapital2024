@@ -43,7 +43,7 @@ search_router = APIRouter()
 
 @search_router.post("/search_one")
 def search_one(product_name: str):
-    return JSONResponse(content=f"{ search_service(product_name)}")
+    return JSONResponse(content=f"{search_service(product_name)}")
 
 
 @search_router.post("/search_many")
